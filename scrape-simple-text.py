@@ -20,12 +20,14 @@ def get_driver():
 
 def main():
     driver = get_driver()
-    try:
+    time.sleep(3)  # Optional: wait for a few seconds to ensure the page is fully loaded
+    for i in range(1, 10):
         # Wait for the page to load and find the element containing the text
-        time.sleep(3)  # Optional: wait for a few seconds to ensure the page is fully loaded
+        
         element = driver.find_element(by='xpath',value='/html/body/div[1]/div/h1[2]')  # Replace with your target element's XPath
         print(element.text)  # Print the text content of the element
-    finally:
-        driver.quit()  # Close the browser
+        print(time.localtime())
+        time.sleep(1)
+    driver.quit()  # Close the browser
 
 print(main())
